@@ -1,0 +1,17 @@
+[package]
+name = "todo"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+crown  = { path = "../crown" }
+serde = { workspace = true }
+sword = { workspace = true }
+sword_macros = { workspace = true }
+clap = { workspace = true, features = ["derive", "cargo", "color", "env"]}
+tokio = { workspace = true }
+axum = "0.7.5"
+
+[[bin]]
+name = "todo"
+path = "src/main.rs"
