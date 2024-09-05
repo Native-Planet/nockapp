@@ -3,6 +3,7 @@ members = [
     "crown",
     "choo",
     "todo",
+    "image-processing/src-tauri"
 ]
 resolver = "2"
 
