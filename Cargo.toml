@@ -2,12 +2,9 @@
 members = [
     "crown",
     "choo",
-<<<<<<< HEAD
     "todo",
-    "image-processing/src-tauri"
-=======
+    "image-processing/src-tauri",
     "http-app",
->>>>>>> cbe14c452106dd929a0dee013389049888e838df
 ]
 resolver = "2"
 
