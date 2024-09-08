@@ -236,12 +236,20 @@ dependencies = [
  "axum-core",
  "bytes",
  "futures-util",
+<<<<<<< HEAD
  "http 1.1.0",
+=======
+ "http",
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
  "http-body",
  "http-body-util",
  "hyper",
  "hyper-util",
+<<<<<<< HEAD
  "itoa 1.0.11",
+=======
+ "itoa",
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
  "matchit",
  "memchr",
  "mime",
@@ -254,7 +262,11 @@ dependencies = [
  "serde_urlencoded",
  "sync_wrapper 1.0.1",
  "tokio",
+<<<<<<< HEAD
  "tower",
+=======
+ "tower 0.4.13",
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
  "tower-layer",
  "tower-service",
  "tracing",
@@ -269,7 +281,11 @@ dependencies = [
  "async-trait",
  "bytes",
  "futures-util",
+<<<<<<< HEAD
  "http 1.1.0",
+=======
+ "http",
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
  "http-body",
  "http-body-util",
  "mime",
@@ -561,6 +577,7 @@ dependencies = [
  "sword_macros",
  "tokio",
  "tracing",
+ "walkdir",
 ]
 
 [[package]]
@@ -1238,6 +1255,7 @@ dependencies = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "flate2"
 version = "1.0.33"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1257,12 +1275,15 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 name = "fnv"
 version = "1.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3f9eec918d3f24069decb9af1554cad7c880e2da24a9afd88aca000531ab82c1"
 
 [[package]]
+<<<<<<< HEAD
 name = "foreign-types"
 version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1278,6 +1299,8 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "00b0228411908ca8685dba7fc2cdd70ec9990a6e753e89b6ac91a84c40fbaf4b"
 
 [[package]]
+=======
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 name = "form_urlencoded"
 version = "1.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1780,6 +1803,7 @@ dependencies = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "html5ever"
 version = "0.26.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1805,6 +1829,8 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 name = "http"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1812,7 +1838,25 @@ checksum = "21b9ddb458710bc376481b842f5da65cdf31522de232c1ca8146abce2a358258"
 dependencies = [
  "bytes",
  "fnv",
+<<<<<<< HEAD
  "itoa 1.0.11",
+=======
+ "itoa",
+]
+
+[[package]]
+name = "http-app"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "clap 4.5.16",
+ "crown",
+ "sword",
+ "sword_macros",
+ "tokio",
+ "tower 0.5.0",
+ "tracing",
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 ]
 
 [[package]]
@@ -1822,7 +1866,11 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1efedce1fb8e6913f23e0c92de8e62cd5b772a67e7b3946df930a62566c93184"
 dependencies = [
  "bytes",
+<<<<<<< HEAD
  "http 1.1.0",
+=======
+ "http",
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 ]
 
 [[package]]
@@ -1833,18 +1881,25 @@ checksum = "793429d76616a256bcb62c2a2ec2bed781c8307e797e2598c50010f2bee2544f"
 dependencies = [
  "bytes",
  "futures-util",
+<<<<<<< HEAD
  "http 1.1.0",
+=======
+ "http",
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
  "http-body",
  "pin-project-lite",
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "http-range"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "21dec9db110f5f872ed9699c3ecf50cf16f423502706ba5c72462e28d3157573"
 
 [[package]]
+=======
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 name = "httparse"
 version = "1.9.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1865,11 +1920,19 @@ dependencies = [
  "bytes",
  "futures-channel",
  "futures-util",
+<<<<<<< HEAD
  "http 1.1.0",
  "http-body",
  "httparse",
  "httpdate",
  "itoa 1.0.11",
+=======
+ "http",
+ "http-body",
+ "httparse",
+ "httpdate",
+ "itoa",
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
  "pin-project-lite",
  "smallvec",
  "tokio",
@@ -1883,7 +1946,11 @@ checksum = "cde7055719c54e36e95e8719f95883f22072a48ede39db7fc17a4e1d5281e9b9"
 dependencies = [
  "bytes",
  "futures-util",
+<<<<<<< HEAD
  "http 1.1.0",
+=======
+ "http",
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
  "http-body",
  "hyper",
  "pin-project-lite",
@@ -1891,6 +1958,7 @@ dependencies = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "iana-time-zone"
 version = "0.1.60"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1914,6 +1982,8 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 name = "ibig"
 version = "0.3.6"
 source = "git+https://github.com/zorp-corp/sword.git?rev=eb4b5132a71302440101c5dd04528c2a875c3d0a#eb4b5132a71302440101c5dd04528c2a875c3d0a"
@@ -2335,12 +2405,15 @@ dependencies = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "matches"
 version = "0.1.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2532096657941c2fea9c289d370a250971c689d4f143798ff67113ec042024a5"
 
 [[package]]
+=======
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 name = "matchit"
 version = "0.7.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2363,6 +2436,7 @@ dependencies = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "memoffset"
 version = "0.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2372,6 +2446,8 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 name = "mime"
 version = "0.3.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2637,6 +2713,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b15813163c1d831bf4a13c3610c05c0d03b39feb07f7e09fa234dac9b15aaf39"
 
 [[package]]
+<<<<<<< HEAD
 name = "pango"
 version = "0.15.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2691,12 +2768,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8835116a5c179084a830efb3adc117ab007512b535bc1a21c991d3b32a6b44dd"
 
 [[package]]
+=======
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 name = "percent-encoding"
 version = "2.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e3148f5046208a5d56bcfc03053e3ca6334e51da8dfb19b6cdc8b306fae3283e"
 
 [[package]]
+<<<<<<< HEAD
 name = "phf"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2831,6 +2911,8 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 name = "pin-project"
 version = "1.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3332,6 +3414,7 @@ version = "0.1.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "af99884400da37c88f5e9146b7f1fd0fbcae8f6eec4e9da38b67d05486f814a6"
 dependencies = [
+<<<<<<< HEAD
  "itoa 1.0.11",
  "serde",
 ]
@@ -3353,6 +3436,9 @@ version = "0.6.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "eb5b1b31579f3811bf615c144393417496f152e12ac8b7663bf664f4a815306d"
 dependencies = [
+=======
+ "itoa",
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
  "serde",
 ]
 
@@ -3363,12 +3449,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d3491c14715ca2294c4d6a88f15e84739788c1d030eed8c110436aafdaa2f3fd"
 dependencies = [
  "form_urlencoded",
+<<<<<<< HEAD
  "itoa 1.0.11",
+=======
+ "itoa",
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
  "ryu",
  "serde",
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "serde_with"
 version = "3.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3431,6 +3522,8 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 name = "sha1"
 version = "0.10.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4194,6 +4287,7 @@ dependencies = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "toml"
 version = "0.5.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4262,6 +4356,8 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 name = "tower"
 version = "0.4.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4278,6 +4374,19 @@ dependencies = [
 ]
 
 [[package]]
+<<<<<<< HEAD
+=======
+name = "tower"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "36b837f86b25d7c0d7988f00a54e74739be6477f2aac6201b8f429a7569991b7"
+dependencies = [
+ "tower-layer",
+ "tower-service",
+]
+
+[[package]]
+>>>>>>> cbe14c452106dd929a0dee013389049888e838df
 name = "tower-layer"
 version = "0.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
