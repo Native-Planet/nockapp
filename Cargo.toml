@@ -6,6 +6,7 @@ members = [
     "http-app",
     "image-processing/src-tauri",
     "blog",
+    "sandbox",
 ]
 resolver = "2"
 

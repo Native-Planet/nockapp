@@ -38,7 +38,7 @@
   ~&  [method.u.sof-cau uri]
   ?+    uri  (page-not-found:h k u.sof-cau)
     [~]            (root-handler:h k u.sof-cau)
-    [%new-post ~]  ~(handle new-handler:h k u.sof-cau now)
+    [%new-post ~]  ~(handle new-handler:h k u.sof-cau now eny)
     [* ~]          (post-handler:h k u.sof-cau i.uri)
   ==
 --

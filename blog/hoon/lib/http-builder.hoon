@@ -60,7 +60,7 @@
   :~  
     %+  html-response  %405
     ;html
-      ;body
+      ;body(style "text-align: center;")
         ;h1: Error 405 Method not allowed
         ;a/"/": Home
       ==
@@ -74,7 +74,7 @@
   :~  
     %+  html-response  %404
     ;html
-      ;body
+      ;body(style "text-align: center;")
         ;h1: Error 404 Page not found
         ;a/"/": Home
       ==
@@ -90,9 +90,10 @@
   :~
     %+  html-response  %200
     ;html
-      ;body
+      ;body(style "text-align: center;")
+        ;h1: Hoon Blog
         ;+  ?:  =((lent posts) 0)
-              ;div
+              ;div(style "text-align: center;")
                 ;h3: No blog posts available
               ==
             ;div(style "margin-bottom:3em")
@@ -103,7 +104,7 @@
                 ;a/"/{(trip p)}": {(trip title.b)}
               ==
             ==
-        ;div
+        ;div(style "text-align:center;")
           ;a/"/new-post": New blog post
         ==
       ==
@@ -122,9 +123,9 @@
     %+  html-response  %200
     ;html
       ;body
-        ;h1: {(trip title.p)}
-        ;p: {(trip contents.p)}
-        ;div(style "margin-top:3em")
+        ;h1(style "text-align: center; margin-bottom: 1em;"): {(trip title.p)}
+        ;code(style "white-space: pre-wrap; display: block;"): {(trip contents.p)}
+        ;div(style "margin-top:3em; text-align: center;")
           ;a/"/": Home
         ==
       ==
@@ -132,7 +133,7 @@
   ==
 ::
 ++  new-handler
-  |_  [k=server-state c=cause now=@da]
+  |_  [k=server-state c=cause now=@da eny=@]
   ++  handle
     ^-  [(list effect) server-state]
     ?+  method.c  (method-not-allowed k c)
@@ -143,20 +144,72 @@
       =+  b=(need body.c)
       ?.  =(p.b (met 3 q.b))
         :_  k  [(html-response %400 post-html-error)]~
-      (make-blog-post q.b now)
+      (make-blog-post q.b now eny)
     ==
   ++  make-blog-post
-    |=  [f=@t now=@da]
+    |=  [f=@t now=@da eny=@]
     ^-  [(list effect) server-state]
-    ::  business logic here
-    ~&  form-data+f
-    =/  first=blog-post  ['some fake title' 'some random content' (sub now 100.000)]
-    =+  k=(~(put by k) ~.some-fake-link first)
-    =/  second=blog-post  ['some other article' 'more random content' now]
-    =+  k=(~(put by k) ~.another-fake-link second)
-    ::  succeeded
-    :_  k
-    [(http-redirect %303 /)]~
+    =/  in=tape  (weld (decode-url-encoded (trip f)) "&")  ::  split by &
+    =|  [title=@t contents=@t =permalink discarded=(list @t)]
+    |-
+    =+  loc=(find "&" in)
+    ?~  loc
+      ~&  discarded+discarded
+      =/  permalink=@ta  ?.  =(permalink '')  permalink  (scot %p (sham [eny now]))
+      =/  k=server-state  (~(put by k) permalink [title contents now])
+      :_  k  [(http-redirect %303 /)]~
+    =/  nin=tape   (slag +((need loc)) in)
+    =/  proc=tape  (scag (need loc) in)
+    ?:  (is-eq "title" proc)
+      $(in nin, title (prod "title" proc))
+    ?:  (is-eq "contents" proc)
+      $(in nin, contents (prod "contents" proc))
+    ?:  (is-eq "permalink" proc)
+      $(in nin, permalink (prod "permalink" proc))
+    $(in nin, discarded (into discarded 0 (crip proc)))
+  ++  decode-url-encoded
+    |=  in=tape
+    ^-  tape
+    =+  d=(turn in rip-ace)
+    =|  o=(list @ud)
+    =+  c=0
+    =+  l=(lent d)
+    |-
+    ?:  (gte c l)
+      |-
+      ?:  (gte 0 (lent o))  d
+      =+  cur=(snag 0 o)
+      =+  decoded=(decode (swag [cur 3] d))
+      ::  weld everything before, current decoded, and everything after
+      =+  newd=:(weld (scag cur d) decoded (slag (add 3 cur) d))
+      :: replace o with the difference
+      =+  newo=(turn (flop (snip (flop o))) |=(x=@ud (sub (add x (lent decoded)) 3)))
+      $(o newo, d newd)
+    ?.  =('%' (snag c d))
+      $(c +(c))
+    $(o (flop (into (flop o) 0 c)), c +(c))
+  ++  decode
+    |=  in=tape
+    ^-  tape
+    =+  first-char=(snag 1 in)
+    %-  trip
+    %+  slav  %ux
+    %-  crip
+    %+  weld  "0x"
+    ?:  =('0' first-char)
+      (cass (slag 2 in))
+    (swag [1 2] in)
+  ++  rip-ace
+    |=  t=@t
+    ?:  =(t '+')  ' '  t
+  ++  prod
+    |=  [pat=tape in=tape]
+    ^-  @t
+    (crip (slag +((lent pat)) in))
+  ++  is-eq
+    |=  [pat=tape in=tape]
+    ^-  ?
+    =(pat (scag (lent pat) in))
   ++  post-html-error
     ;html
       ;h1: Error 400 Bad Request. You submitted an empty form
@@ -165,22 +218,25 @@
   ++  get-html
     ;html
       ;body
-        ;h3: New Post
-        ;form(action "/new-post", method "POST")
+        ;h1(style "text-align: center; margin-bottom: 2em;"): New Post
+        ;form(action "/new-post", method "POST", style "margin-bottom: 1em;")
           ;div
             ;label(for "title"): Title
-            ;input#title(type "text", name "title", style "width: 100%;");
+            ;input#title(type "text", name "title", style "width: 100%;", required "");
           ==
           ;div
             ;label(for "contents"): Contents
-            ;textarea#contents(name "contents", style "width: 100%; height: 400px;");
+            ;textarea#contents(name "contents", style "width: 100%; height: calc(100vh - 400px);");
           ==
           ;div
             ;label(for "permalink"): Permalink
-            ;input#permalink(type "text", placeholder "Auto generated if left blank", style "width: 100%;");
+            ;input#permalink(type "text", name "permalink", placeholder "Auto generated if left blank", style "width: 100%;");
             ;small: Only letters, numbers, underscores, and hyphens allowed
           ==
-          ;button(type "submit", style "margin-top: 3em;"): Create Post
+          ;button(type "submit", style "margin-top: 1em;"): Create Post
+        ==
+        ;div(style "text-align: center;")
+          ;a/"/": Home
         ==
       == 
     ==
