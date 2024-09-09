@@ -3,8 +3,9 @@ members = [
     "crown",
     "choo",
     "todo",
-    "image-processing/src-tauri",
     "http-app",
+    "image-processing/src-tauri",
+    "blog",
 ]
 resolver = "2"
 
